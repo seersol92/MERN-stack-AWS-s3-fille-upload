@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import 'whatwg-fetch';
 import SideBar from '../Shared/SideBar';
 
-import { Document, Page } from 'react-pdf';
 
 class Home extends Component {
   constructor(props) {
@@ -14,14 +13,10 @@ class Home extends Component {
       videos:[],
       audios:[],
       pdf:[],
-      numPages: null,
-      pageNumber: 1,
+    
     };
   }
 
-  onDocumentLoadSuccess = ({ numPages }) => {
-    this.setState({ numPages });
-  }
 
   componentDidMount() {
     fetch(`/api/media/${localStorage.getItem('selected_user') || 1}`)
@@ -42,7 +37,6 @@ class Home extends Component {
   }
 
   render() {
-    const { pageNumber, numPages } = this.state;
     return (
       <>
     
@@ -109,20 +103,14 @@ class Home extends Component {
           <div className="card border-primary mb-3">
             <div className="card-header">PDF[{this.state.pdf.length}]</div>
             <div className="card-body">
+          
               <ul>
             { this.state.pdf.map((pd, i) => (
               <li key={i}>
               <span className="float-left">
-              <Document
-              scale="0.5"
-              height='10'
-              width='10'
-                file={`https://s3.ap-south-1.amazonaws.com/seersol/${pd.file_name}`}
-                onLoadSuccess={this.onDocumentLoadSuccess}
-              >
-                <Page pageNumber={pageNumber} />
-              </Document>
-        
+              <iframe src={`https://docs.google.com/gview?url=https://s3.ap-south-1.amazonaws.com/seersol/${pd.file_name}&embedded=true`} 
+              style={{ width: '250px', height: '250px'}} frameborder="0"></iframe>
+
                </span>
                 <span className="float-right"> {pd.uploaded_on}</span>
               </li>

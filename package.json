@@ -1,11 +1,11 @@
 {
-  "name": "MERN-stack-AWS-s3-fille-upload",
+  "name": "MERNAWSUPLOAD",
   "version": "1.0.0",
-  "description": "",
+  "description": "MERN AWS UPLOAD",
   "author": "Seersol",
   "repository": {
     "type": "git",
-    "url": "https://github.com/seersol92/MERN-stack-AWS-s3-fille-upload.git"
+    "url": "git+https://github.com/seersol92/mern.git"
   },
   "license": "MIT",
   "private": true,
@@ -41,7 +41,6 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-hot-loader": "^4.0.0",
-    "react-pdf": "^4.0.5",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-spinners": "^0.5.3",
